@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Python 3.5.2 (/usr/bin/python) interpreter library">
+    <archive path="/usr/lib/python3.5" />
+    <archive path="/usr/lib/python3.5/plat-linux" />
+    <archive path="/usr/lib/python3.5/lib-dynload" />
+    <archive path="/usr/lib/python3.5/site-packages" />
+    <archive path="/home/abar/.IntelliJIdea2016.2/system/python_stubs/348993582" />
+    <archive path="/home/abar/.IntelliJIdea2016.2/config/plugins/python/helpers/python-skeletons" />
+  </library>
+</eclipse-userlibraries>
+
