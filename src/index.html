@@ -1,88 +1,54 @@
 <!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html ng-app="learningApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <!-- Place favicon.ico in the root directory -->
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <link rel="stylesheet" href="css/main.css">
+    <script src="https://code.angularjs.org/1.6.0-rc.2/angular.js"></script>
+    <script src="js/main.js"></script>
+</head>
 
-        <link rel="stylesheet" href="css/main.css">
-        <script src="js/vendor/modernizr-2.8.3.min.js"></script>
-    </head>
-    <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+<body ng-controller="IndexController">
+    <div class="body">
+        <p>Hallo, willkommen zu der LearningApp.</p>
 
-        <!-- Add your site or application content here -->
-        
-        
-        <style> 
-        #Ueberschrift {
-        	position: absolute;
-        	left: 2em;
-        	//border: 2px dashed #F00;
-        	//margin: 2%;
-        	
-        	}
-        
-        #categories {
-        	position:relative;
-        	left:1em;
-        	
-        	}
-        
-        #orderedLists {
-			list-style-type:none;        
-        	position:relative;
-        
-        	}
-        
-      
-     
-        </style>
-        
-        
-        
-        
-        
-        <p>Hallo, willkommen zu der LearningApp. </p>
+        <div class="ueberschrift"> <h3>Courses</h3>
+            <div ng-repeat="(key, course) in courses" class="categories">
+                <br>{{course.name}}
+            <ul ng-repeat="lecture in course.lectures" class="orderedLists">
+                <li><a href="#" ng-click="coursePicked(key+'-'+lecture.id)" class="myButton">{{lecture.name}}</a></li>
+            </ul>
+            <ul class="orderedLists">
+                <li><a href="#" class="myButton"><span style="font-size: large">+</span></a></li>
+            </ul>
+            </div>
+            <span style="font-size: large">+</span>
+        </div>
 
-		<div id="Ueberschrift"> Studium 
-		
-			<div id="categories"><br>Modul 1</div>
-				<ul id="orderedLists">
-				<li >  <a href="#" class="myButton"> Thema 1</a> </li>
-				<li >  <a href="#" class="myButton"> Thema 2</a> </li>
-				<li >  <a href="#" class="myButton"> Thema 3</a> </li>
-			</ul>
-			
-			<div id="categories">Modul 2</div>
-			
-				
-		
-		
-		
-		
-		
-		
-		
-		    </div>
-
-
-
-
-
-
-
-
-        <!--<script src="https://code.jquery.com/jquery-{{JQUERY_VERSION}}.min.js"></script>-->
-        <!--<script>window.jQuery || document.write('<script src="js/vendor/jquery-{{JQUERY_VERSION}}.min.js"><\/script>')</script>-->
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
-    </body>
+        <div ng-if="quizLoaded" class="quiz"> <h3>Self test</h3>
+            <h4>{{notes[i].question}}</h4>
+            <div ng-if="answered == 0">
+                <textarea ng-model="input.userAnswer"></textarea>
+            </div>
+            <div ng-if="answered == 1">
+                <p style="color: green">{{savedAnswer}}</p>
+                <br/>
+                <b>{{notes[i].answer}}</b>
+            </div>
+            <div ng-if="answered == 0">
+                <button ng-if="answered == 0" type="button" ng-click="quizAnswer()">Ready</button>
+            </div>
+            <div ng-if="answered == 1" >
+                <br/>Was your answer: <br />
+                <button type="button" ng-click="quizCorrect()">Correct</button>/
+                <button type="button" ng-click="quizWrong()">Wrong</button>
+            </div>
+        </div>
+    </div>
+</body>
 </html>

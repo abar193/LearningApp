@@ -1,3 +1,38 @@
+.ueberschrift {
+    position: relative;
+    padding-left: 5%;
+    width: 30%;
+    height: 70%;
+    float: left;
+    /*border: 2 px dashed #F00;*/
+    /*margin: 2%;*/
+}
+
+textarea {
+    width: 80%;
+    height: 150px;
+}
+
+.quiz {
+    position: relative;
+    float: left;
+    width: 65%;
+    height: 70%;
+    border-left: 1px black;
+}
+
+.categories {
+    position: relative;
+    left: 1em;
+}
+
+.orderedLists {
+    list-style-type: none;
+    position: relative;
+
+}
+
+
 /*
  * What follows is the result of much research on cross-browser styling.
  * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
@@ -315,5 +350,5 @@ textarea {
     h3 {
         page-break-after: avoid;
     }
-    
+
 }
